@@ -11,9 +11,5 @@ test("form header renders", () => {
 });
 
 test("form shows success message on submit with form details", () => {
-  //arrange
-  //act
-  //assert
-
-  const { getByText, getByTestId } = render(<CheckoutForm />);
+  const { getByLabelText, getByTestId } = render(<CheckoutForm />);
 });

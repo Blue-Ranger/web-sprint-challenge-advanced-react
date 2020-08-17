@@ -1,0 +1,38 @@
+Print Questions And Answers:
+
+1. Explain how to build stateful class components.
+
+    A. Building components with stateful logic  means keeping track of changing data within components using state. data can be stored and updated and rendered.
+
+2. Describe the different phases of the component lifecycle.
+
+    A. 3 main phases Mounting. Updating, Unmounting:
+
+        *Mounting - Means putting elements in the DOM:
+            4 built-in methods that gets called, in this order, when mounting a component:
+                1.constructor() - called before anything else when component is initiated; set up the initial state and other initial values. 
+                2.getDerivedStateFromProps()
+                3.render() - method is required and will always be called
+                4.componentDidMount() - method is called after the component is rendered
+
+        *Updating - Whenever there is a change in the component's state or props:
+            5 built-in methods that gets called, in this order, when a component is updated
+                1.getDerivedStateFromProps()
+                2.shouldComponentUpdate()
+                3.render()
+                4.getSnapshotBeforeUpdate()
+                5.componentDidUpdate() - method is called after the update has been rendered in the DOM
+
+        *Unmounting - When a component is removed from the DOM:
+            1 built-in method that gets called when a component is unmounted
+                1.componentWillUnmount()
+
+3. Demonstrate an understanding of class component lifecycle methods.
+
+    A.
+
+4. Define stateful logic.
+
+    A.
+
+5. Describe how to test a React component with React Testing Library.

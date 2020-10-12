@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, getByText } from "@testing-library/react";
 import CheckoutForm from "./CheckoutForm";
 
 // Write up the two tests here and make sure they are testing what the title shows
@@ -11,15 +11,15 @@ test("form header renders", () => {
 });
 
 test("form shows success message on submit with form details", () => {
-  const { getByLabelText, getByTestId } = render(<CheckoutForm />);
+  const { getByText, queryByTestId } = render(<CheckoutForm />);
 
-  const firstname = getByLabelText(/first name/i);
-  const lastname = getByLabelText(/last name/i);
-  const address = getByLabelText(/address/i);
-  const city = getByLabelText(/city/i);
-  const state = getByLabelText(/state/i);
-  const zipcode = getByLabelText(/zip/i);
-  const button = getByLabelText(/button/i);
+  const firstname = getByText(/first name/i);
+  const lastname = getByText(/last name/i);
+  const address = getByText(/address/i);
+  const city = getByText(/city/i);
+  const state = getByText(/state/i);
+  const zipcode = getByText(/zip/i);
+  const button = getByText(/button/i);
 
   fireEvent.change(firstname, { target: { value: "Mr. Fancy" } });
   fireEvent.change(lastname, { target: { value: "Pants" } });
@@ -29,6 +29,6 @@ test("form shows success message on submit with form details", () => {
   fireEvent.change(zipcode, { target: { value: "12345" } });
   fireEvent.click(button);
 
-  const success = getByTestId(/successMessage/i);
+  const success = queryByTestId(/successMessage/i);
   expect(success).toBeInTheDocument();
 });
